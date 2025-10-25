@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light only"/>
+    <title>PawCare Veterinary</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- CDN oficial Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="text-gray-800 antialiased">
+    <!-- NAVBAR -->
+    <header class="bg-transparent">
+      <nav
+        class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50 w-full mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center"
+          >
+            <img
+              src="img/Golden-Retriever.webp"
+              class="w-10 h-10 rounded-full flex items-center justify-center"
+            />
+          </div>
+          <div>
+            <div class="font-semibold">Veterinaria JOBSA</div>
+            <div class="text-xs text-gray-500">
+              Cuidando a tus mascotas desde 2010
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#services" class="text-sm hover:underline">Servicios</a>
+          <a href="#about" class="text-sm hover:underline">Acerca de</a>
+          <a href="#team" class="text-sm hover:underline">Nuestro Equipo</a>
+          <a href="#contact" class="text-sm hover:underline">Contacto</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="hidden md:flex items-center gap-2 text-sm text-gray-600">
+            <i class="fa-solid fa-phone text-[10px]"></i>
+            <span>(555) 123-4567</span>
+          </div>
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 bg-[color:var(--brand-green)] text-white text-sm px-4 py-2 rounded-md shadow hover:opacity-95"
+            >Agendar cita</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6">
+      <!-- HERO (full width) -->
+      <section
+        class="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-[color:var(--muted-green)] py-12"
+      >
+        <div class="max-w-7xl mx-auto px-6 py-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div
+                class="badge inline-block px-3 py-1 rounded-full text-sm mb-4"
+              >
+                Certificado por más de 10,000+ dueños de mascotas
+              </div>
+              <h1
+                class="text-4xl md:text-5xl font-semibold text-[color:var(--brand-green)] leading-tight mb-4"
+              >
+                Cuidando con calidad a tus mascotas
+              </h1>
+              <p class="text-gray-700 mb-6">
+                Servicios veterinarios compasivos con instalaciones de última
+                generación. Tratamos a tus mascotas como familia, porque lo son.
+              </p>
+              <div class="flex gap-4">
+                <a
+                  href="#contact"
+                  class="bg-[color:var(--brand-green)] text-white px-5 py-2 rounded shadow hover:opacity-95"
+                  >Agendar cita</a
+                >
+                <button
+                  class="border border-green-200 px-5 py-2 rounded text-[color:var(--brand-green)] hover:opacity-95"
+                >
+                  Cuidado de emergencia
+                </button>
+              </div>
+              <div
+                class="mt-8 grid grid-cols-3 gap-4 text-center text-sm text-gray-600"
+              >
+                <div>
+                  <div
+                    class="text-2xl font-semibold text-[color:var(--brand-green)]"
+                  >
+                    15+
+                  </div>
+                  <div>Años de experiencia</div>
+                </div>
+                <div>
+                  <div
+                    class="text-2xl font-semibold text-[color:var(--brand-green)]"
+                  >
+                    5
+                  </div>
+                  <div>Veterinarios expertos</div>
+                </div>
+                <div>
+                  <div
+                    class="text-2xl font-semibold text-[color:var(--brand-green)]"
+                  >
+                    24/7
+                  </div>
+                  <div>Cuidado de emergencia</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <div class="w-full md:w-[520px]">
+                <img
+                  src="img/Shiba.jpg"
+                  alt="Shiba Inu"
+                  class="w-full rounded-2xl shadow-xl object-cover h-64 md:h-[420px]"
+                />
+                <div
+                  class="inline-flex items-center gap-2 mt-4 bg-white p-3 rounded-xl shadow -translate-y-6"
+                >
+                  <div>
+                    <div class="text-xs text-gray-500">98%</div>
+                    <div class="text-sm font-medium">Tasa de satisfacción</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="py-12 bg-white">
+        <div class="text-center mb-6">
+          <div class="text-sm badge inline-block px-3 py-1 rounded-full">
+            Nuestros Servicios
+          </div>
+          <h2 class="text-2xl md:text-3xl font-semibold mt-4">
+            Atención Veterinaria Integral
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+            Desde chequeos de rutina hasta atención de emergencia, ofrecemos una
+            gama completa de servicios veterinarios para mantener a tus mascotas
+            saludables y felices.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="service-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-box">
+                <i class="fa-solid fa-stethoscope text-[20px]"></i>
+              </div>
+              <div>
+                <div class="font-semibold">Exámenes de Bienestar</div>
+                <p class="text-sm text-gray-600 mt-1">
+                  Exámenes de salud integrales para mantener a tu mascota en
+                  óptimas condiciones durante todo el año.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-box">
+                <i class="fa-solid fa-syringe text-[20px]"></i>
+              </div>
+              <div>
+                <div class="font-semibold">Vacunación</div>
+                <p class="text-sm text-gray-600 mt-1">
+                  Vacunas esenciales para proteger a tus mascotas de
+                  enfermedades prevenibles.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-box">
+                <i class="fa-solid fa-scissors text-[20px]"></i>
+              </div>
+              <div>
+                <div class="font-semibold">Cirugía</div>
+                <p class="text-sm text-gray-600 mt-1">
+                  Procedimientos quirúrgicos avanzados realizados por cirujanos
+                  veterinarios experimentados.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-box text-[20px]">
+                <i class="fa-solid fa-tooth"></i>
+              </div>
+              <div>
+                <div class="font-semibold">Cuidado Dental</div>
+                <p class="text-sm text-gray-600 mt-1">
+                  Limpieza dental profesional y mantenimiento de la salud bucal
+                  para dientes sanos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="service-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-box text-[20px]">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <div>
+                <div class="font-semibold">Cuidado de Emergencia</div>
+                <p class="text-sm text-gray-600 mt-1">
+                  Servicios de emergencia 24/7 para situaciones médicas urgentes
+                  y accidentes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="service-card p-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-box text-[20px]">
+                <i class="fa-solid fa-shield-dog"></i>
+              </div>
+              <div>
+                <div class="font-semibold">Seguro para Mascotas</div>
+                <p class="text-sm text-gray-600 mt-1">
+                  Orientación sobre opciones de seguro para mascotas para ayudar
+                  a gestionar los costos de atención médica.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT (full-bleed visual but kept inside <main>) -->
+      <section
+        id="about"
+        class="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-[color:var(--muted-green)] py-12"
+      >
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div
+                class="badge inline-block px-3 py-1 rounded-full text-sm mb-4"
+              >
+                Acerca de Nosotros
+              </div>
+              <h3 class="text-2xl font-semibold mb-3">
+                La Salud de Tu Mascota es Nuestra Prioridad
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Durante más de 15 años, JOBSA ha brindado atención excepcional a
+                las mascotas de nuestra comunidad. Nuestro equipo de
+                veterinarios y personal dedicados se compromete a tratar a cada
+                animal con amor y respeto.
+              </p>
+
+              <ul
+                class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700"
+              >
+                <li class="flex items-start gap-2">
+                  <span class="text-green-700">✓</span> Instalaciones modernas y
+                  bien equipadas
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-green-700">✓</span> Veterinarios
+                  experimentados y compasivos
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-green-700">✓</span> Farmacia y laboratorio
+                  internos
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-green-700">✓</span> Alojamiento cómodo y
+                  seguro
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img
+                src="img/Cat.jpg"
+                alt="About clinic"
+                class="w-full rounded-2xl shadow-lg object-cover h-72 md:h-[360px]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM (full-bleed visual but kept inside <main>) -->
+      <section
+        id="team"
+        class="relative left-1/2 right-1/2 w-screen -translate-x-1/2 py-12"
+      >
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-6">
+            <div class="badge inline-block px-3 py-1 rounded-full text-sm">
+              Nuestro Equipo
+            </div>
+            <h2 class="text-2xl md:text-3xl font-semibold mt-4">
+              Conoce a Nuestros Veterinarios Experimentados
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+              Nuestro equipo de veterinarios certificados aporta décadas de
+              experiencia combinada y un amor genuino por los animales.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="overflow-hidden hover:shadow-xl transition-shadow border-2 hover:border-primary/200 rounded-xl"
+            >
+              <div class="aspect-[3/4] overflow-hidden">
+                <img
+                  src="img/cat2.jpeg"
+                  alt="Dr Sarah"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <div class="mb-1">Doctora. Sarah Mitchell</div>
+                <div class="text-gray-500">
+                  Jefa de Veterinaria — Medicina de Pequeños Animales
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="overflow-hidden hover:shadow-xl transition-shadow border-2 hover:border-primary/200 rounded-xl"
+            >
+              <div class="aspect-[3/4] overflow-hidden">
+                <img
+                  src="img/labrador2.jpg"
+                  alt="Dr James"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <div class="mb-1">Doctor. James Parker</div>
+                <div class="text-gray-500">
+                  Cirujano Veterinario — Cirugía & Ortopedia
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="overflow-hidden hover:shadow-xl transition-shadow border-2 hover:border-primary/200 rounded-xl"
+            >
+              <div class="aspect-[3/4] overflow-hidden">
+                <img
+                  src="img/husky.jpg"
+                  alt="Dr Emily"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <div class="mb-1">Doctora. Emily Chen</div>
+                <div class="text-gray-500">
+                  Veterinaria de Emergencia — Emergencias y Cuidados Críticos
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT (full-bleed visual but kept inside <main>) -->
+      <section
+        id="contact"
+        class="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-[color:var(--muted-green)] py-12"
+      >
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left: cards -->
+            <div class="space-y-4">
+              <div class="service-card p-6">
+                <div class="flex items-start gap-4">
+                  <div class="icon-box mt-1">
+                    <i class="fa-solid fa-location-dot text-[15px]"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Ubicación</h4>
+                    <p class="text-sm text-gray-600">
+                      123 Pet Care Lane<br />Green Valley, CA 94567
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-card p-6">
+                <div class="flex items-start gap-4">
+                  <div class="icon-box mt-1">
+                    <i class="fa-solid fa-phone text-[15px]"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Teléfono</h4>
+                    <p class="text-sm text-gray-600">
+                      123-456-7890<br />info@pawcare.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-card p-6">
+                <div class="flex items-start gap-4">
+                  <div class="icon-box mt-1">
+                    <i class="fa-solid fa-envelope text-[15px]"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Email</h4>
+                    <p class="text-sm text-gray-600">info@jobsa.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: form -->
+            <div
+              class="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+            >
+              <h4 class="font-semibold mb-4">Escribenos</h4>
+              <form class="space-y-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <input class="form-input" placeholder="Tu nombre" />
+                  <input class="form-input" placeholder="tu@email.com" />
+                </div>
+                <div>
+                  <input
+                    class="form-input full"
+                    placeholder="Teléfono (555) 123-4567"
+                  />
+                </div>
+                <div>
+                  <input
+                    class="form-input full"
+                    placeholder="Tipo de mascota (Perro, Gato, etc.)"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    class="form-textarea w-full h-28"
+                    placeholder="Cuéntanos sobre las necesidades de tu mascota..."
+                  ></textarea>
+                </div>
+                <div class="text-right">
+                  <button
+                    type="submit"
+                    class="bg-[color:var(--brand-green)] text-white px-5 py-2 rounded"
+                  >
+                    Enviar Mensaje
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (estética inspirada, usa 6.webp si quieres como pequeño fondo) -->
+    <footer class="mt-24 bg-[color:var(--brand-green)] text-white">
+      <div
+        class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-6"
+      >
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div>
+              <div class="font-semibold">Veterinaria JOBSA</div>
+              <div class="text-xs opacity-80">
+                Cuidando a tus mascotas desde 2010
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-sm">
+          <div class="font-semibold mb-2">Links</div>
+          <ul class="space-y-1 opacity-90">
+            <li>Servicios</li>
+            <li>Sobre Nosotros</li>
+            <li>Nuestro Equipo</li>
+            <li>Contacto</li>
+          </ul>
+        </div>
+
+        <div class="text-sm">
+          <div class="font-semibold mb-2">Servicios</div>
+          <ul class="space-y-1 opacity-90">
+            <li>Exámenes de Bienestar</li>
+            <li>Vacunaciones</li>
+            <li>Cirugía</li>
+            <li>Atención de Emergencia</li>
+          </ul>
+        </div>
+
+        <div class="text-sm">
+          <div class="font-semibold mb-2">Conéctate con Nosotros</div>
+          <div class="opacity-90">Línea de Emergencia: (555) 123-4568</div>
+          <div class="flex gap-3 mt-3">
+            <span
+              class="w-8 h-8 bg-white/10 rounded flex items-center justify-center"
+              >F</span
+            >
+            <span
+              class="w-8 h-8 bg-white/10 rounded flex items-center justify-center"
+              >I</span
+            >
+            <span
+              class="w-8 h-8 bg-white/10 rounded flex items-center justify-center"
+              >T</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 py-4 text-center text-sm opacity-90">
+        © 2025 Veterinaria JOBSA. Todos los derechos reservados.
+      </div>
+    </footer>
+  </body>
+</html>

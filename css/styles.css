@@ -1,0 +1,71 @@
+/* Pequeñas personalizaciones */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+:root {
+  --brand-green: #1f5a3a;
+  --muted-green: #e6f3ec;
+}
+.badge {
+  background: rgba(31, 90, 58, 0.08);
+  color: var(--brand-green);
+}
+
+/* NUEVO: estilo para las tarjetas de servicios */
+.service-card {
+  border: 1px solid rgba(31, 90, 58, 0.12); /* color de borde similar a la imagen */
+  border-radius: 0.75rem; /* equivalente a rounded-xl */
+  background: #ffffff;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+  will-change: transform, box-shadow;
+  cursor: default;
+}
+.service-card:hover {
+  box-shadow: 0 18px 35px rgba(31, 90, 58, 0.08); /* sombra al hacer hover */
+  transform: translateY(-6px); /* ligero levantamiento */
+}
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 90, 58, 0.06); /* fondo pálido para el icono */
+  color: var(--brand-green);
+  flex-shrink: 0;
+}
+
+/* NUEVO: estilos para inputs/textarea (foco verde + borde/sombra suave) */
+.form-input,
+.form-textarea {
+  /* fondo pálido verde */
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  transition: box-shadow 200ms ease, border-color 200ms ease,
+    transform 120ms ease;
+  color: #0f172a;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(15, 23, 42, 0.35);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: rgba(31, 90, 58, 0.95); /* borde verde más marcado */
+  /* sombra externa suave + halo verde sutil */
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.06),
+    /* sombra negra suave para "elevación" */ 0 0 0 6px rgba(31, 90, 58, 0.06); /* halo verde tenue */
+  transform: translateY(-1px);
+}
+
+/* Mantener compatibilidad con inputs inline en grid */
+.form-input.full {
+  width: 100%;
+}
