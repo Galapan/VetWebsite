@@ -1,9 +1,9 @@
-/* Pequeñas personalizaciones */
+/* colores del body */
 body {
     background-color: #ffffff;
     color: #000000;
 }
-
+ /* estilos para badges (etiquetas) */
 :root {
   --brand-green: #1f5a3a;
   --muted-green: #e6f3ec;
