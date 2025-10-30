@@ -1,6 +1,3 @@
-// formulario.js
-// Coloca este archivo en la carpeta raíz junto a tu HTML
-
 document.addEventListener('DOMContentLoaded', function() {
   const formulario = document.getElementById('formularioContacto');
   
