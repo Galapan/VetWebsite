@@ -30,8 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
       botonEnviar.textContent = 'Enviando...';
       
       try {
-        // Enviar los datos al backend
-        const response = await fetch('http://localhost:3000/api/mensajes', {
+        // Enviar los datos al backend (usar URL relativa para evitar problemas de origen)
+        // Si sirves el frontend desde el mismo servidor express, usar la ruta relativa '/api/mensajes'
+        const response = await fetch('/api/mensajes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -39,16 +40,23 @@ document.addEventListener('DOMContentLoaded', function() {
           body: JSON.stringify(datos)
         });
         
-        const resultado = await response.json();
-        
+        const resultadoText = await response.text();
+        let resultado;
+        try {
+          resultado = JSON.parse(resultadoText || '{}');
+        } catch (err) {
+          // si no es JSON, dejar el texto crudo
+          resultado = { raw: resultadoText };
+        }
+
         if (response.ok) {
           // Éxito
           alert('¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.');
           formulario.reset(); // Limpiar el formulario
         } else {
           // Error del servidor
-          console.error('Error del servidor:', resultado);
-          alert('Error al enviar el mensaje: ' + (resultado.error || 'Error desconocido'));
+          console.error('Error del servidor:', response.status, resultado);
+          alert('Error al enviar el mensaje: ' + (resultado.error || resultado.raw || 'Error desconocido'));
         }
         
       } catch (error) {
