@@ -10,6 +10,7 @@
     --color-green-200: oklch(92.5% 0.084 155.995);
     --color-green-700: oklch(52.7% 0.154 150.069);
     --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
@@ -119,6 +120,7 @@
   }
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
+    vertical-align: middle;
   }
   img, video {
     max-width: 100%;
@@ -399,6 +401,9 @@
   .border-gray-100 {
     border-color: var(--color-gray-100);
   }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
   .border-green-200 {
     border-color: var(--color-green-200);
   }
@@ -663,6 +668,60 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+}
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+:root {
+  --brand-green: #1f5a3a;
+  --muted-green: #e6f3ec;
+}
+.badge {
+  background: rgba(31, 90, 58, 0.08);
+  color: var(--brand-green);
+}
+.service-card {
+  border: 1px solid rgba(31, 90, 58, 0.12);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+  will-change: transform, box-shadow;
+  cursor: default;
+}
+.service-card:hover {
+  box-shadow: 0 18px 35px rgba(31, 90, 58, 0.08);
+  transform: translateY(-6px);
+}
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 90, 58, 0.06);
+  color: var(--brand-green);
+  flex-shrink: 0;
+}
+.form-input, .form-textarea {
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  transition: box-shadow 200ms ease, border-color 200ms ease, transform 120ms ease;
+  color: #0f172a;
+}
+.form-input::placeholder, .form-textarea::placeholder {
+  color: rgba(15, 23, 42, 0.35);
+}
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: rgba(31, 90, 58, 0.95);
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.06),  0 0 0 6px rgba(31, 90, 58, 0.06);
+  transform: translateY(-1px);
+}
+.form-input.full {
+  width: 100%;
 }
 @property --tw-translate-x {
   syntax: "*";
