@@ -32,11 +32,11 @@ app.get('/api', (req, res) => {
     message: 'Bienvenido a la API de Veterinaria',
     endpoints: {
       health: 'GET /api/health',
-      mensajes: {
-        crear: 'POST /api/mensajes',
-        obtener_todos: 'GET /api/mensajes',
-        obtener_uno: 'GET /api/mensajes/:id',
-        eliminar: 'DELETE /api/mensajes/:id'
+      citas: {
+        crear: 'POST /api/appointments',
+        obtener_todas: 'GET /api/appointments',
+        obtener_una: 'GET /api/appointments/:id',
+        eliminar: 'DELETE /api/appointments/:id'
       }
     }
   });
@@ -48,28 +48,32 @@ app.get('/api/health', (req, res) => {
 });
 
 // Crear un nuevo mensaje de contacto
-app.post('/api/mensajes', async (req, res) => {
+app.post('/api/appointments', async (req, res) => {
   try {
-    const { nombre, email, telefono, tipo_mascota, mensaje } = req.body;
+    const { owner_name, email, phone, pet_name, pet_type, service_requested, preferred_date, preferred_time, comments } = req.body;
 
     // Validación básica
-    if (!nombre || !email || !telefono || !tipo_mascota || !mensaje) {
+    if (!owner_name || !email || !phone || !pet_name || !pet_type || !service_requested || !preferred_date || !preferred_time) {
       return res.status(400).json({ 
         error: 'Faltan campos requeridos',
-        campos_requeridos: ['nombre', 'email', 'telefono', 'tipo_mascota', 'mensaje']
+        campos_requeridos: ['owner_name', 'email', 'phone', 'pet_name', 'pet_type', 'service_requested', 'preferred_date', 'preferred_time']
       });
     }
 
     // Insertar en Supabase
     const { data, error } = await supabase
-      .from('mensajes')
+      .from('appointments')
       .insert([
         {
-          nombre,
+          owner_name,
           email,
-          telefono,
-          tipo_mascota,
-          mensaje,
+          phone,
+          pet_name,
+          pet_type,
+          service_requested,
+          preferred_date,
+          preferred_time,
+          comments,
           created_at: new Date().toISOString()
         }
       ])
@@ -97,11 +101,11 @@ app.post('/api/mensajes', async (req, res) => {
   }
 });
 
-// Obtener todos los mensajes
-app.get('/api/mensajes', async (req, res) => {
+// Obtener todas las citas
+app.get('/api/appointments', async (req, res) => {
   try {
     const { data, error } = await supabase
-      .from('mensajes')
+      .from('appointments')
       .select('*')
       .order('created_at', { ascending: false });
 
@@ -127,13 +131,13 @@ app.get('/api/mensajes', async (req, res) => {
   }
 });
 
-// Obtener un mensaje por ID
-app.get('/api/mensajes/:id', async (req, res) => {
+// Obtener una cita por ID
+app.get('/api/appointments/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
     const { data, error } = await supabase
-      .from('mensajes')
+      .from('appointments')
       .select('*')
       .eq('id', id)
       .single();
@@ -160,13 +164,13 @@ app.get('/api/mensajes/:id', async (req, res) => {
   }
 });
 
-// Eliminar un mensaje
-app.delete('/api/mensajes/:id', async (req, res) => {
+// Eliminar una cita
+app.delete('/api/appointments/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
     const { error } = await supabase
-      .from('mensajes')
+      .from('appointments')
       .delete()
       .eq('id', id);
 
