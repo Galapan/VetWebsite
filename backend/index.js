@@ -20,7 +20,6 @@ app.use((req, res, next) => {
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../')));
 
-const PORT = process.env.PORT || 3000;
 
 // ============================================
 // ENDPOINTS
@@ -203,8 +202,4 @@ app.use((req, res) => {
   });
 });
 
-// Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
-  console.log(`📡 API disponible en http://localhost:${PORT}/api`);
-});
+module.exports = app;
