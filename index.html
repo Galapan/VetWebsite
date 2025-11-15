@@ -13,9 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <!-- Tailwind CSS desde el CLI-->
-     <link rel="stylesheet" href="src/output.css">
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="src/input.css">
+    <link rel="stylesheet" href="src/output.css" />
   </head>
 
   <body class="text-gray-800 antialiased">
@@ -98,25 +96,19 @@
                 class="mt-8 grid grid-cols-3 gap-4 text-center text-sm text-gray-600"
               >
                 <div>
-                  <div
-                    class="text-2xl font-semibold text-(--brand-green)"
-                  >
+                  <div class="text-2xl font-semibold text-(--brand-green)">
                     15+
                   </div>
                   <div>Años de experiencia</div>
                 </div>
                 <div>
-                  <div
-                    class="text-2xl font-semibold text-(--brand-green)"
-                  >
+                  <div class="text-2xl font-semibold text-(--brand-green)">
                     5
                   </div>
                   <div>Veterinarios expertos</div>
                 </div>
                 <div>
-                  <div
-                    class="text-2xl font-semibold text-(--brand-green)"
-                  >
+                  <div class="text-2xl font-semibold text-(--brand-green)">
                     24/7
                   </div>
                   <div>Cuidado de emergencia</div>
@@ -447,23 +439,46 @@
             >
               <h4 class="font-semibold mb-4">Escribenos</h4>
               <form class="space-y-3">
-                <h3 class="font-semibold text-lg mb-4">Formulario de solicitud de cita</h3>
-                
+                <h3 class="font-semibold text-lg mb-4">
+                  Formulario de solicitud de cita
+                </h3>
+
                 <div class="mb-4">
                   <h4 class="font-medium mb-2">Información del dueño</h4>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label for="owner_name" class="block text-sm mb-1">Nombre del dueño *</label>
-                      <input type="text" id="owner_name" class="form-input w-full" placeholder="John Doe" />
+                      <label for="owner_name" class="block text-sm mb-1"
+                        >Nombre del dueño *</label
+                      >
+                      <input
+                        type="text"
+                        id="owner_name"
+                        class="form-input w-full"
+                        placeholder="John Doe"
+                      />
                     </div>
                     <div>
-                      <label for="email" class="block text-sm mb-1">Email *</label>
-                      <input type="email" id="email" class="form-input w-full" placeholder="john@email.com" />
+                      <label for="email" class="block text-sm mb-1"
+                        >Email *</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-input w-full"
+                        placeholder="john@email.com"
+                      />
                     </div>
                   </div>
                   <div class="mt-3">
-                    <label for="phone" class="block text-sm mb-1">Número de teléfono *</label>
-                    <input type="tel" id="phone" class="form-input w-full" placeholder="(555) 123-4567" />
+                    <label for="phone" class="block text-sm mb-1"
+                      >Número de teléfono *</label
+                    >
+                    <input
+                      type="tel"
+                      id="phone"
+                      class="form-input w-full"
+                      placeholder="(555) 123-4567"
+                    />
                   </div>
                 </div>
 
@@ -471,11 +486,20 @@
                   <h4 class="font-medium mb-2">Información de la mascota</h4>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label for="pet_name" class="block text-sm mb-1">Nombre de la mascota *</label>
-                      <input type="text" id="pet_name" class="form-input w-full" placeholder="Max" />
+                      <label for="pet_name" class="block text-sm mb-1"
+                        >Nombre de la mascota *</label
+                      >
+                      <input
+                        type="text"
+                        id="pet_name"
+                        class="form-input w-full"
+                        placeholder="Max"
+                      />
                     </div>
                     <div>
-                      <label for="pet_type" class="block text-sm mb-1">Tipo de mascota *</label>
+                      <label for="pet_type" class="block text-sm mb-1"
+                        >Tipo de mascota *</label
+                      >
                       <select id="pet_type" class="form-select w-full">
                         <option value="">Seleccionar tipo de mascota</option>
                         <option value="perro">Perro</option>
@@ -488,7 +512,9 @@
                 </div>
 
                 <div class="mb-4">
-                  <label for="service_requested" class="block text-sm mb-1">Servicio solicitado *</label>
+                  <label for="service_requested" class="block text-sm mb-1"
+                    >Servicio solicitado *</label
+                  >
                   <select id="service_requested" class="form-select w-full">
                     <option value="">Seleccionar un servicio</option>
                     <option value="chequeo_regular">Chequeo regular</option>
@@ -503,11 +529,19 @@
                   <h4 class="font-medium mb-2">Fecha y hora de la cita</h4>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label for="preferred_date" class="block text-sm mb-1">Fecha preferida *</label>
-                      <input type="date" id="preferred_date" class="form-input w-full" />
+                      <label for="preferred_date" class="block text-sm mb-1"
+                        >Fecha preferida *</label
+                      >
+                      <input
+                        type="date"
+                        id="preferred_date"
+                        class="form-input w-full"
+                      />
                     </div>
                     <div>
-                      <label for="preferred_time" class="block text-sm mb-1">Hora preferida *</label>
+                      <label for="preferred_time" class="block text-sm mb-1"
+                        >Hora preferida *</label
+                      >
                       <select id="preferred_time" class="form-select w-full">
                         <option value="">Seleccionar hora</option>
                         <option value="mañana">Mañana (9AM - 12PM)</option>
@@ -518,7 +552,9 @@
                 </div>
 
                 <div class="mb-4">
-                  <label for="comments" class="block text-sm mb-1">Comentarios adicionales o síntomas</label>
+                  <label for="comments" class="block text-sm mb-1"
+                    >Comentarios adicionales o síntomas</label
+                  >
                   <textarea
                     id="comments"
                     class="form-textarea w-full h-28"
@@ -600,7 +636,15 @@
       <div class="border-t border-white/10 py-4 text-center text-sm opacity-90">
         © 2025 Veterinaria JOBSA. Todos los derechos reservados.
       </div>
+      <a
+        href="AdminDashboard.html"
+        class="fixed bottom-6 right-6 bg-(--brand-green) text-white px-4 py-3 rounded-md shadow-lg flex items-center gap-2 hover:opacity-90 hover:shadow-xl transition-all z-50"
+        title="Panel de Administración"
+      >
+        <i class="fa-solid fa-id-card-clip"></i>
+        <span class="text-sm font-medium">Admin</span>
+      </a>
     </footer>
-    <script src="./formulario.js"></script>
+    <script src="backend/formulario.js"></script>
   </body>
 </html>

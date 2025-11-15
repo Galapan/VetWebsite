@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS (si tu frontend está en otro puerto)
+// CORS
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -19,7 +19,6 @@ app.use((req, res, next) => {
 
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../')));
-
 
 // ============================================
 // ENDPOINTS
@@ -35,6 +34,7 @@ app.get('/api', (req, res) => {
         crear: 'POST /api/appointments',
         obtener_todas: 'GET /api/appointments',
         obtener_una: 'GET /api/appointments/:id',
+        actualizar: 'PUT /api/appointments/:id',
         eliminar: 'DELETE /api/appointments/:id'
       }
     }
@@ -51,7 +51,6 @@ app.post('/api/appointments', async (req, res) => {
   try {
     const { owner_name, email, phone, pet_name, pet_type, service_requested, preferred_date, preferred_time, comments } = req.body;
 
-    // Validación básica
     if (!owner_name || !email || !phone || !pet_name || !pet_type || !service_requested || !preferred_date || !preferred_time) {
       return res.status(400).json({ 
         error: 'Faltan campos requeridos',
@@ -59,7 +58,6 @@ app.post('/api/appointments', async (req, res) => {
       });
     }
 
-    // Insertar en Supabase
     const { data, error } = await supabase
       .from('appointments')
       .insert([
@@ -73,6 +71,7 @@ app.post('/api/appointments', async (req, res) => {
           preferred_date,
           preferred_time,
           comments,
+          status: 'pending',
           created_at: new Date().toISOString()
         }
       ])
@@ -163,6 +162,57 @@ app.get('/api/appointments/:id', async (req, res) => {
   }
 });
 
+// Actualizar el estado de una cita (NUEVO)
+app.put('/api/appointments/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const validStatuses = ['pending', 'confirmed', 'canceled'];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ 
+        error: 'Estado inválido',
+        statuses_validos: validStatuses
+      });
+    }
+
+    const { data, error } = await supabase
+      .from('appointments')
+      .update({ 
+        status,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', id)
+      .select();
+
+    if (error) {
+      console.error('Error de Supabase:', error);
+      return res.status(500).json({ 
+        error: 'Error al actualizar la cita',
+        detalles: error.message 
+      });
+    }
+
+    if (!data || data.length === 0) {
+      return res.status(404).json({ 
+        error: 'Cita no encontrada'
+      });
+    }
+
+    res.json({ 
+      message: 'Cita actualizada exitosamente',
+      data: data[0]
+    });
+
+  } catch (error) {
+    console.error('Error en el servidor:', error);
+    res.status(500).json({ 
+      error: 'Error interno del servidor',
+      detalles: error.message 
+    });
+  }
+});
+
 // Eliminar una cita
 app.delete('/api/appointments/:id', async (req, res) => {
   try {
@@ -200,6 +250,16 @@ app.use((req, res) => {
     error: 'Ruta no encontrada',
     ruta: req.originalUrl 
   });
+});
+
+// Puerto del servidor
+const PORT = process.env.PORT || 3000;
+
+// Iniciar el servidor
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`📊 API disponible en http://localhost:${PORT}/api`);
+  console.log(`🏥 Dashboard admin en http://localhost:${PORT}/AdminDashboard.html`);
 });
 
 module.exports = app;
